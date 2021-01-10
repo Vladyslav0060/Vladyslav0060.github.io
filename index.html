@@ -1,0 +1,197 @@
+<!-- <img class="card-img-top col-4"v-bind:src="'https://openweathermap.org/img/wn/' + cityWeatherInfo.weather[0].icon + '@2x.png'"></div> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yjv3Xn4DRwxESZ40P2uSuu9TKPIsdUU&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel = "stylesheet" href = "style.css">
+  <title>Weather</title>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">
+      <img src="https://cdn.iconscout.com/icon/free/png-256/weather-135-225412.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Weather 
+    </a>
+    <h6><span class="badge badge-primary">Simple way to get weather</span></h6>
+  </nav>
+  <div id="map"></div>
+    <div id="app">   
+            <div class = "container">
+              <form>
+                <div class = "input-group">
+                  <input type = "text" class="form-control" v-model="searchField" placeholder="Search" name = "search">
+                  <div class = "input-group-btn">
+                    <input class = "btn btn-success" type="button" v-on:click="search" value="Find">
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+              The forecast update time is:<strong><p style="color:rgb(24, 206, 24);font-size: 20px;">{{forecast.list[0].dt_txt}}</p></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+          
+
+            <div class="card" style="width: 20rem;">
+             
+              <div class="card-body">
+                <ul class="list-group list-group-flush text-center">
+                  <li class="list-group-item"> <img v-bind:src="'https://openweathermap.org/img/wn/' + cityWeatherInfo.weather[0].icon + '@2x.png'"><strong style="color:green">{{cityWeatherInfo.weather[0].description}}</strong></li>
+                  <li class="list-group-item"><h3 style="color:black;font-size: 2em">{{cityWeatherInfo.name}}</h3></li>
+                  <li class="list-group-item"><p><span style="color: green; font-size: 2em">{{Math.round((cityWeatherInfo.main.temp-273))}}°C</span></p></li>
+                  <li class="list-group-item"><p><span style="color: green; font-size: 2em">{{cityWeatherInfo.wind.speed}}m/s</span></p></li>
+                </ul>
+              </div>
+            </div>
+
+
+
+              <table class="table" style="background-color:rgb(40, 49, 173);">
+                <thead>
+                  <tr>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Температура</th>
+                    <th scope="col">Ветер</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <script language="javascript" type="application/javascript">
+                      
+                        var d = new Date();
+                        var day=new Array("Вс","Пн","Вт",
+                        "Ср","Чт","Пт","Сб");
+                        var month=new Array("января","февраля","марта","апреля","мая","июня",
+                        "июля","августа","сентября","октября","ноября","декабря");
+                        var TODAY = day[d.getDay()] +" " +d.getDate()+ " " + month[d.getMonth()];
+                        document.write(TODAY);
+                       </script>
+                    </th>
+                    <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[0].weather[0].icon + '@2x.png'"></td>
+                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[0].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[0].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[0].wind.speed}}м/с, {{forecast.list[0].wind.deg}}° <hr><div class="dropleft">
+                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
+                        ... 
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
+                        <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Давление: {{forecast.list[0].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[0].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
+                      </div>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <script language="javascript" type="application/javascript">
+                      
+                        var d = new Date();
+                        var day=new Array("Вс","Пн","Вт",
+                        "Ср","Чт","Пт","Сб");
+                        var month=new Array("января","февраля","марта","апреля","мая","июня",
+                        "июля","августа","сентября","октября","ноября","декабря");
+                        var TODAY = day[d.getDay()+1] +" " +(d.getDate()+1) + " " + month[d.getMonth()];
+                        document.write(TODAY);
+                       </script>
+                    </th>
+                    <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[1].weather[0].icon + '@2x.png'"></td>
+                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[1].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[1].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr><div class="dropleft">
+                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
+                        ... 
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
+                        <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[1].main.temp-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[1].main.feels_like-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[1].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[1].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Давление: {{forecast.list[1].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[1].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">Описание: {{forecast.list[1].weather[0].main}}, {{forecast.list[1].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[1].wind.speed}}m/s, {{forecast.list[1].wind.deg}}° </a>
+                      </div>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <script language="javascript" type="application/javascript">
+                      
+                        var d = new Date();
+                        var day=new Array("Вс","Пн","Вт",
+                        "Ср","Чт","Пт","Сб");
+                        var month=new Array("января","февраля","марта","апреля","мая","июня",
+                        "июля","августа","сентября","октября","ноября","декабря");
+                        var TODAY = day[d.getDay()+2] +" " +(d.getDate()+2) + " " + month[d.getMonth()];
+                        document.write(TODAY);
+                       </script>
+                    </th>
+                    <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[2].weather[0].icon + '@2x.png'"></td>
+                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[2].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[2].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr><div class="dropleft">
+                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
+                        ... 
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
+                        <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[2].main.temp-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[2].main.feels_like-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[2].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[2].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Давление: {{forecast.list[2].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[2].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">Описание: {{forecast.list[2].weather[0].main}}, {{forecast.list[2].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[2].wind.speed}}m/s, {{forecast.list[2].wind.deg}}° </a>
+                      </div>
+                    </div></td>
+                  </tr>
+                </tbody>
+              </table>
+
+             
+              
+            </div>
+          </div>
+          </div>
+     
+         
+
+        
+     
+
+         
+
+          
+    </div>       
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src = "main.js"></script>
+<script>
+  $('#btn-tooltip').tooltip();
+</script>
+
+</body>
+</html>

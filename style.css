@@ -1,0 +1,62 @@
+.city-name{
+  color:red;
+}
+
+body{
+background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Website-Background-Images-,-Best-Background-Images-,-HD-.jpg');
+
+} 
+
+/* .card{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: row;
+} */
+.form-inline active-cyan-4{
+  flex-direction: row;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+.card {
+  width: 12rem;
+  border: thick double #30aa81;
+  border-radius: 20px;
+  flex-direction: row;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  margin-block-start: 50px;
+}
+
+.card-text{
+  text-align: center;
+}
+
+
+.btn-success{
+    margin-left: 10px;
+}
+
+.card-title{
+  font-weight: bold;
+
+}
+
+/* .list-group-item{
+  background-color: rgb(184, 181, 192);
+} */
+
+.card-body{
+  /*background-color: rgb(184, 181, 192);
+  border-radius: 15;*/
+  margin-bottom: -15px;
+}
+
+.table{
+  margin-top: 50px;
+  color:white;
+  /* background-color:  rgb(28, 27, 136); */
+}
+
