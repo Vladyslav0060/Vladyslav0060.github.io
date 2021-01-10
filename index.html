@@ -79,7 +79,7 @@
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[0].weather[0].icon + '@2x.png'"></td>
                     <td>мин:<p style="color: green;">{{Math.round(forecast.list[0].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[0].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[0].wind.speed}}м/с, {{forecast.list[0].wind.deg}}° <hr><div class="dropleft">
+                    <td>{{forecast.list[0].wind.speed}}м/с, {{forecast.list[0].wind.deg}}° <hr><div class="dropdown">
                       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
                         ... 
                       </button>
@@ -110,7 +110,7 @@
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[1].weather[0].icon + '@2x.png'"></td>
                     <td>мин:<p style="color: green;">{{Math.round(forecast.list[1].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[1].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr><div class="dropleft">
+                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr><div class="dropdown">
                       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
                         ... 
                       </button>
@@ -141,7 +141,7 @@
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[2].weather[0].icon + '@2x.png'"></td>
                     <td>мин:<p style="color: green;">{{Math.round(forecast.list[2].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[2].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr><div class="dropleft">
+                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr><div class="dropdown">
                       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
                         ... 
                       </button>
