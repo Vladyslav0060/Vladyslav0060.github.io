@@ -4,11 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yjv3Xn4DRwxESZ40P2uSuu9TKPIsdUU&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -23,7 +18,7 @@
     </a>
     <h6><span class="badge badge-primary">Simple way to get weather</span></h6>
   </nav>
-  <div id="map"></div>
+  
     <div id="app">   
             <div class = "container">
               <form>
@@ -88,19 +83,15 @@
                       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
                         ... 
                       </button>
-					  <div class="btn-group dropleft">
-					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" overflow-y: auto;>
-						Dropleft
-					</button>
-					<div class="dropdown-menu">
-					<!-- Dropdown menu links -->
-					<a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
-					<a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
-					</div>
-					</div>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
                         <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
                         <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Давление: {{forecast.list[0].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[0].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
                       </div>
                     </div></td>
                   </tr>
@@ -144,7 +135,7 @@
                         "Ср","Чт","Пт","Сб");
                         var month=new Array("января","февраля","марта","апреля","мая","июня",
                         "июля","августа","сентября","октября","ноября","декабря");
-                        var TODAY = day[d.getDay()+2] +" " +(d.getDate()+2) + " " + month[d.getMonth()];
+                        var TODAY = day[d.getDay()+3] +" " +(d.getDate()-27) + " " + month[d.getMonth()+1];
                         document.write(TODAY);
                        </script>
                     </th>
