@@ -1,10 +1,11 @@
 .city-name{
   color:red;
+  position: absolute
 }
 
 body{
 background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Website-Background-Images-,-Best-Background-Images-,-HD-.jpg');
-
+position: absolute
 } 
 
 /* .card{
@@ -20,6 +21,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
   margin-bottom: 10px; /* Added */
 }
 .card {
+  position: absolute
   width: 12rem;
   border: thick double #30aa81;
   border-radius: 20px;
@@ -31,6 +33,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 }
 
 .card-text{
+  position: absolute
   text-align: center;
 }
 
@@ -49,14 +52,20 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 } */
 
 .card-body{
+  position: absolute
   /*background-color: rgb(184, 181, 192);
   border-radius: 15;*/
   margin-bottom: -15px;
 }
 
 .table{
+  position: absolute
   margin-top: 50px;
   color:white;
   /* background-color:  rgb(28, 27, 136); */
+}
+
+.dropdown-menu {
+  position: absolute
 }
 
