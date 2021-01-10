@@ -1,5 +1,5 @@
 var city = "Kiev";
-var api_url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=29ac53b7596655152413141a6911d9b0`;
+var api_url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=29ac53b7596655152413141a6911d9b0`;
 var api_url_2 = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=3&appid=29ac53b7596655152413141a6911d9b0`;
 
 new Vue({
@@ -44,7 +44,7 @@ new Vue({
   methods: {
     search: function () {
       console.log("click: ", this.searchField);
-      api_url = `http://api.openweathermap.org/data/2.5/weather?q=${this.searchField}&appid=29ac53b7596655152413141a6911d9b0`;
+      api_url = `https://api.openweathermap.org/data/2.5/weather?q=${this.searchField}&appid=29ac53b7596655152413141a6911d9b0`;
       api_url_2 = `https://api.openweathermap.org/data/2.5/forecast?q=${this.searchField}&cnt=3&appid=29ac53b7596655152413141a6911d9b0`;
       console.log(api_url);
       let self = this;
