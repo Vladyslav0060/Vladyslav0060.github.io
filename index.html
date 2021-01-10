@@ -82,14 +82,17 @@
                     <td>{{forecast.list[0].wind.speed}}м/с, {{forecast.list[0].wind.deg}}° <hr>
                              <div class="btn-group dropleft">
   <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropleft
+    ...
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Action</a>
+ <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
+                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Давление: {{forecast.list[0].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[0].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
     <!-- Dropdown menu links -->
   </div>
 </div>
@@ -110,11 +113,15 @@
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[1].weather[0].icon + '@2x.png'"></td>
                     <td>мин:<p style="color: green;">{{Math.round(forecast.list[1].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[1].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr><div class="dropleft">
-                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
-                        ... 
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
+                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr>
+                      
+                      <div class="btn-group dropleft">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ...
+  </button>
+  <div class="dropdown-menu">
+ <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
                         <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[1].main.temp-273)}}°C</a>
                         <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[1].main.feels_like-273)}}°C</a>
                         <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[1].main.temp_min-273)}}°C </a>
@@ -123,8 +130,10 @@
                         <a class="dropdown-item" href="#">Влажность: {{forecast.list[1].main.humidity}}% </a>
                         <a class="dropdown-item" href="#">Описание: {{forecast.list[1].weather[0].main}}, {{forecast.list[1].weather[0].description}} </a>
                         <a class="dropdown-item" href="#">Ветер: {{forecast.list[1].wind.speed}}m/s, {{forecast.list[1].wind.deg}}° </a>
-                      </div>
-                    </div></td>
+    <!-- Dropdown menu links -->
+  </div>
+</div>
+                      </td>
                   </tr>
                   <tr>
                     <th scope="row">
@@ -141,12 +150,16 @@
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[2].weather[0].icon + '@2x.png'"></td>
                     <td>мин:<p style="color: green;">{{Math.round(forecast.list[2].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[2].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr><div class="dropleft">
-                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 3rem;">
-                        ... 
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
-                        <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[2].main.temp-273)}}°C</a>
+                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr>
+                      
+                                            <div class="btn-group dropleft">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ...
+  </button>
+  <div class="dropdown-menu">
+ <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
+                       <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[2].main.temp-273)}}°C</a>
                         <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[2].main.feels_like-273)}}°C</a>
                         <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[2].main.temp_min-273)}}°C </a>
                         <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[2].main.temp_max-273)}}°C </a>
@@ -154,8 +167,12 @@
                         <a class="dropdown-item" href="#">Влажность: {{forecast.list[2].main.humidity}}% </a>
                         <a class="dropdown-item" href="#">Описание: {{forecast.list[2].weather[0].main}}, {{forecast.list[2].weather[0].description}} </a>
                         <a class="dropdown-item" href="#">Ветер: {{forecast.list[2].wind.speed}}m/s, {{forecast.list[2].wind.deg}}° </a>
-                      </div>
-                    </div></td>
+    <!-- Dropdown menu links -->
+  </div>
+</div>
+                      
+                      
+                     </td>
                   </tr>
                 </tbody>
               </table>
