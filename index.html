@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yjv3Xn4DRwxESZ40P2uSuu9TKPIsdUU&callback=initMap&libraries=&v=weekly"
@@ -44,7 +44,7 @@
               </form>
             </div>
 
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-top: 20px;">
               The forecast update time is:<strong><p style="color:rgb(24, 206, 24);font-size: 20px;">{{forecast.list[0].dt_txt}}</p></strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -57,7 +57,7 @@
              
               <div class="card-body">
                 <ul class="list-group list-group-flush text-center">
-                  <li class="list-group-item"> <img v-bind:src="'https://openweathermap.org/img/wn/' + cityWeatherInfo.weather[0].icon + '@2x.png'"><strong style="color:green">{{cityWeatherInfo.weather[0].description}}</strong></li>
+                  <li class="list-group-item" style="height: 7rem;"> <img v-bind:src="'https://openweathermap.org/img/wn/' + cityWeatherInfo.weather[0].icon + '@2x.png'"><strong style="color:green">{{cityWeatherInfo.weather[0].description}}</strong></li>
                   <li class="list-group-item"><h3 style="color:black;font-size: 2em">{{cityWeatherInfo.name}}</h3></li>
                   <li class="list-group-item"><p><span style="color: green; font-size: 2em">{{Math.round((cityWeatherInfo.main.temp-273))}}°C</span></p></li>
                   <li class="list-group-item"><p><span style="color: green; font-size: 2em">{{cityWeatherInfo.wind.speed}}m/s</span></p></li>
@@ -71,12 +71,7 @@
 
               <table class="table" style="background-color:rgb(40, 49, 173);">
                 <thead>
-                  <tr>
-                    <th scope="col">Дата</th>
-                    <th scope="col">Описание</th>
-                    <th scope="col">Температура</th>
-                    <th scope="col">Ветер</th>
-                  </tr>
+
                 </thead>
                 
                 <tbody>
@@ -85,17 +80,17 @@
                       <script language="javascript" type="application/javascript">
                       
                         var d = new Date();
-                        var day=new Array("Вс","Пн","Вт",
-                        "Ср","Чт","Пт","Сб");
-                        var month=new Array("января","февраля","марта","апреля","мая","июня",
-                        "июля","августа","сентября","октября","ноября","декабря");
+                        var day=new Array("Sun","Mon","Tue",
+                        "Wed","Thu","Fri","Sat");
+                        var month=new Array("January","February","March","April","May","June",
+                        "July","August","September","October","November","December");
                         var TODAY = day[d.getDay()] +" " +d.getDate()+ " " + month[d.getMonth()];
                         document.write(TODAY);
                        </script>
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[0].weather[0].icon + '@2x.png'"></td>
-                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[0].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[0].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[0].wind.speed}}м/с, {{forecast.list[0].wind.deg}}° <hr>
+                    <td>Min:<p style="color: green;">{{Math.round(forecast.list[0].main.temp_min-273)}}°C</p>Max:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[0].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° <hr>
                       <p>
                   
                       </p>
@@ -107,69 +102,67 @@
 					
 					<a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
 					<a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
-                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
-                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
-                        <a class="dropdown-item" href="#">Давление: {{forecast.list[0].main.pressure}}мм </a>
-                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[0].main.humidity}}% </a>
-                        <a class="dropdown-item" href="#">Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
-                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
+                        <a class="dropdown-item" href="#">Minимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Maxимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Atm. pressure: {{forecast.list[0].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Hudimity: {{forecast.list[0].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Wind speed: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
 					</div>
 					</div>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: rgb(75, 235, 27);">
                         <a class="dropdown-item" href="#">Температура: {{Math.round(forecast.list[0].main.temp-273)}}°C</a>
                         <a class="dropdown-item" href="#">Ощущается: {{Math.round(forecast.list[0].main.feels_like-273)}}°C</a>
-                        <a class="dropdown-item" href="#">Минимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
-                        <a class="dropdown-item" href="#">Максимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
-                        <a class="dropdown-item" href="#">Давление: {{forecast.list[0].main.pressure}}мм </a>
-                        <a class="dropdown-item" href="#">Влажность: {{forecast.list[0].main.humidity}}% </a>
-                        <a class="dropdown-item" href="#">Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
-                        <a class="dropdown-item" href="#">Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
+                        <a class="dropdown-item" href="#">Minимальная температура: {{Math.round(forecast.list[0].main.temp_min-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Maxимальная температура: {{Math.round(forecast.list[0].main.temp_max-273)}}°C </a>
+                        <a class="dropdown-item" href="#">Atm. pressure: {{forecast.list[0].main.pressure}}мм </a>
+                        <a class="dropdown-item" href="#">Hudimity: {{forecast.list[0].main.humidity}}% </a>
+                        <a class="dropdown-item" href="#">: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} </a>
+                        <a class="dropdown-item" href="#">Wind speed: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° </a>
                       </div>
                     </div> -->
                     <p>
                       <a class="btn btn-primary dropdown-toggle" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                       
                       </a>
                      
                     </p>
                   </td>
                   
                   </tr>
-                  <tr>
+                  
                     <td style="border: 0px;">
                     <div class="collapse" id="collapseExample1">
-                                          
+                      <div class = "row">                   
                       <ul>
                         <li>
-                          Мин: {{Math.round(forecast.list[0].main.temp_min-273)}}°C 
+                          Min: {{Math.round(forecast.list[0].main.temp_min-273)}}°C  Max: {{Math.round(forecast.list[0].main.temp_max-273)}}°C 
                         </li>
                         <li>
-                          Макс: {{Math.round(forecast.list[0].main.temp_max-273)}}°C
+                          Atm. pressure: {{forecast.list[0].main.pressure}}мм
                         </li>
                         <li>
-                          Давление: {{forecast.list[0].main.pressure}}мм
+                          Hudimity: {{forecast.list[1].main.humidity}}%
                         </li>
                         <li>
-                          Влажность: {{forecast.list[1].main.humidity}}%
+                          {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} 
                         </li>
                         <li>
-                          Описание: {{forecast.list[0].weather[0].main}}, {{forecast.list[0].weather[0].description}} 
-                        </li>
-                        <li>
-                          Ветер: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° 
+                          Wind speed: {{forecast.list[0].wind.speed}}m/s, {{forecast.list[0].wind.deg}}° 
                         </li>
                       </ul>
                     </td>
                     </div>
-                  </tr>
+                  </div> 
                   <tr>
                     <th scope="row" style="width:300px">
                       <script language="javascript" type="application/javascript">
                       
                         var d = new Date();
-                        var day=new Array("Вс","Пн","Вт",
-                        "Ср","Чт","Пт","Сб");
-                        var month=new Array("января","февраля","марта","апреля","мая","июня",
-                        "июля","августа","сентября","октября","ноября","декабря");
+                        var day=new Array("Sun","Mon","Tue",
+                        "Wed","Thu","Fri","Sat");
+                        var month=new Array("January","February","March","April","May","June",
+                        "July","August","September","October","November","December");
                         var TODAY = day[d.getDay()+1] +" " +(d.getDate()+1) + " " + month[d.getMonth()];
                         document.write(TODAY);
                        </script>
@@ -178,11 +171,12 @@
                     <td style = "width: 300px margin-left=10px"><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[1].weather[0].icon + '@2x.png'">
                      
                     </td>
-                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[1].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[1].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[1].wind.speed}}м/с, {{forecast.list[1].wind.deg}}° <hr>
+                    <td>Min:<p style="color: green;">{{Math.round(forecast.list[1].main.temp_min-273)}}°C</p>Max:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[1].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[1].wind.speed}}m/s, {{forecast.list[1].wind.deg}}° <hr>
 
                       <p>
                         <a class="btn btn-primary dropdown-toggle" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                         
                         </a>
                        
                       </p>
@@ -196,22 +190,22 @@
                                           
                       <ul>
                         <li>
-                          Мин: {{Math.round(forecast.list[1].main.temp_min-273)}}°C 
+                          Min: {{Math.round(forecast.list[1].main.temp_min-273)}}°C 
                         </li>
                         <li>
-                          Макс: {{Math.round(forecast.list[1].main.temp_max-273)}}°C
+                          Max: {{Math.round(forecast.list[1].main.temp_max-273)}}°C
                         </li>
                         <li>
-                          Давление: {{forecast.list[1].main.pressure}}мм
+                          Atm. pressure: {{forecast.list[1].main.pressure}}мм
                         </li>
                         <li>
-                          Влажность: {{forecast.list[1].main.humidity}}%
+                          Hudimity: {{forecast.list[1].main.humidity}}%
                         </li>
                         <li>
-                          Описание: {{forecast.list[1].weather[0].main}}, {{forecast.list[1].weather[0].description}} 
+                           {{forecast.list[1].weather[0].main}}, {{forecast.list[1].weather[0].description}} 
                         </li>
                         <li>
-                          Ветер: {{forecast.list[1].wind.speed}}m/s, {{forecast.list[1].wind.deg}}° 
+                          Wind speed: {{forecast.list[1].wind.speed}}m/s, {{forecast.list[1].wind.deg}}° 
                         </li>
                       </ul>
                     </td>
@@ -222,21 +216,22 @@
                       <script language="javascript" type="application/javascript">
                       
                         var d = new Date();
-                        var day=new Array("Вс","Пн","Вт",
-                        "Ср","Чт","Пт","Сб");
-                        var month=new Array("января","февраля","марта","апреля","мая","июня",
-                        "июля","августа","сентября","октября","ноября","декабря");
+                        var day=new Array("Sun","Mon","Tue",
+                        "Wed","Thu","Fri","Sat");
+                        var month=new Array("January","February","March","April","May","June",
+                        "July","August","September","October","November","December");
                         var TODAY = day[d.getDay()+2] +" " +(d.getDate()+2) + " " + month[d.getMonth()];
                         document.write(TODAY);
                        </script>
                     </th>
                     <td><img v-bind:src="'https://openweathermap.org/img/wn/' + forecast.list[2].weather[0].icon + '@2x.png'"></td>
-                    <td>мин:<p style="color: green;">{{Math.round(forecast.list[2].main.temp_min-273)}}°C</p>макс:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[2].main.temp_max -273)}}°C</p></td> 
-                    <td>{{forecast.list[2].wind.speed}}м/с, {{forecast.list[2].wind.deg}}° <hr>
+                    <td>Min:<p style="color: green;">{{Math.round(forecast.list[2].main.temp_min-273)}}°C</p>Max:<p style="color:rgb(235, 8, 8)">{{Math.round(forecast.list[2].main.temp_max -273)}}°C</p></td> 
+                    <td>{{forecast.list[2].wind.speed}}m/s, {{forecast.list[2].wind.deg}}° <hr>
                       
                 
                     <p>
                       <a class="btn btn-primary dropdown-toggle" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                       
                       </a>
                      
                     </p>
@@ -248,22 +243,22 @@
                                           
                       <ul>
                         <li>
-                          Мин: {{Math.round(forecast.list[2].main.temp_min-273)}}°C 
+                          Min: {{Math.round(forecast.list[2].main.temp_min-273)}}°C 
                         </li>
                         <li>
-                          Макс: {{Math.round(forecast.list[2].main.temp_max-273)}}°C
+                          Max: {{Math.round(forecast.list[2].main.temp_max-273)}}°C
                         </li>
                         <li>
-                          Давление: {{forecast.list[2].main.pressure}}мм
+                          Atm. pressure: {{forecast.list[2].main.pressure}}мм
                         </li>
                         <li>
-                          Влажность: {{forecast.list[2].main.humidity}}%
+                          Hudimity: {{forecast.list[2].main.humidity}}%
                         </li>
                         <li>
-                          Описание: {{forecast.list[2].weather[0].main}}, {{forecast.list[2].weather[0].description}} 
+                          : {{forecast.list[2].weather[0].main}}, {{forecast.list[2].weather[0].description}} 
                         </li>
                         <li>
-                          Ветер: {{forecast.list[2].wind.speed}}m/s, {{forecast.list[2].wind.deg}}° 
+                          Wind speed: {{forecast.list[2].wind.speed}}m/s, {{forecast.list[2].wind.deg}}° 
                         </li>
                       </ul>
                     </td>
