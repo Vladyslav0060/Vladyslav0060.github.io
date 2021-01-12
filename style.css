@@ -61,6 +61,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 .table{
   margin-top: 50px;
   color:white;
+  table-layout: fixed;
   /* background-color:  rgb(28, 27, 136); */
 }
 
