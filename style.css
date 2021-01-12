@@ -7,5 +7,94 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 
 } 
 
+/* .card{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: row;
+} */
+.form-inline active-cyan-4{
+  flex-direction: row;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+.card {
+  width: 12rem;
+  border: thick double #30aa81;
+  border-radius: 20px;
+  flex-direction: row;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  margin-block-start: 50px;
+}
+
+.content .mainbar .table {
+  vertical-align: top;
+}
+
+.card-text{
+  text-align: center;
+}
 
 
+.btn-success{
+    margin-left: 10px;
+}
+
+.card-title{
+  font-weight: bold;
+
+}
+
+/* .list-group-item{
+  background-color: rgb(184, 181, 192);
+} */
+
+.card-body{
+  /*background-color: rgb(184, 181, 192);
+  border-radius: 15;*/
+  margin-bottom: -15px;
+}
+
+.table{
+  margin-top: 50px;
+  color:white;
+  /* background-color:  rgb(28, 27, 136); */
+}
+
+.dropdown-menu {
+	background-color:red;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu .menu-item {
+  float: left;
+  margin: 0 1px 0 0;
+  padding: 0;
+  background: #E1E1E1;
+}
+.menu .menu-item a {
+  display: block;
+  padding: 5px 10px;
+}
+.menu .submenu {
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #E1E1E1;
+}
+.menu .menu-item:hover .submenu {
+  display: block;
+}
+.menu .submenu-item {
+  margin: 0;
+  padding: 5px 10px;
+}
