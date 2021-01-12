@@ -20,7 +20,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
   margin-bottom: 10px; /* Added */
 }
 .card {
-  width: 12rem;
+  width: 5rem;
   border: thick double #30aa81;
   border-radius: 20px;
   flex-direction: row;
@@ -55,6 +55,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 .card-body{
   /*background-color: rgb(184, 181, 192);
   border-radius: 15;*/
+  
   margin-bottom: -15px;
 }
 
@@ -62,7 +63,11 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
   margin-top: 50px;
   color:white;
   table-layout: fixed;
-  /* background-color:  rgb(28, 27, 136); */
+    /* background-color:  rgb(28, 27, 136); */
+}
+
+.col{
+ width: 25%;
 }
 
 .dropdown-menu {
@@ -98,4 +103,7 @@ background-image: url('https://cutewallpaper.org/21/web-site-wall-paper/Cool-Web
 .menu .submenu-item {
   margin: 0;
   padding: 5px 10px;
+}
+.list-group-item{
+  height: 5rem;
 }
